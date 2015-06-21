@@ -31,8 +31,8 @@
 @implementation Patron {
     int accountBalance;
     int InPocket;
-    int deposit;
-    int withdraw;
+//    int deposit;
+//    int withdraw;
 }
 
     // public (decleared in interface) IMPLEMENTATION
@@ -59,7 +59,7 @@
     scanf("%d",&d);
     accountBalance += d;
     NSLog(@"Your current balance is %d", accountBalance);
-    deposit = d;
+//    deposit = d;
 }
 
 -(void) setWithDraw {
@@ -67,9 +67,14 @@
     NSLog(@"Max withdraw amount is $1,000 per day");
     NSLog(@"Please Enter the amount you wish to withdraw: ");
     scanf("%d",&w);
+    if (w > accountBalance) {
+        NSLog(@"You cannot withdraw more than your currentbalance: $%d",accountBalance);
+        NSLog(@"Please enter a different amount you wish to withdraw: ");
+        scanf("%d", &w);
+    } 
     accountBalance -= w;
     NSLog(@"Your current balance is %d", accountBalance);
-    withdraw = w;
+//    withdraw = w;
 }
 
 @end
