@@ -87,10 +87,19 @@ int main(int argc, const char * argv[]) {
         [p setName];          // print name
         [p setAccount: 1000]; //account balance
         [p setPocket: 600];   //money in pocket
-        [p setDeposit];  //
-        [p setWithDraw];
+//        [p setDeposit]; 
+//        [p setWithDraw];
         
-        
+        char option;
+        NSLog(@"Do you want to Deposite or Withdraw: d or w");
+        scanf("%c", &option);
+        if (option == 'w') {
+            [p setWithDraw];
+        } else if (option == 'd'){
+            [p setDeposit];
+        } else {
+            NSLog(@"Invalid Entry");
+        }
         
         
         
