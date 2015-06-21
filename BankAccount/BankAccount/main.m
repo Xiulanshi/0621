@@ -22,32 +22,55 @@
 -(void) setName: (NSString*)name;
 -(void) setAccount: (int)n;
 -(void) setPocket: (int)p;
+-(void) setDeposit: (int)d;
+-(void) setWithDraw: (int)w;
 
 
 @end
 
 @implementation Patron {
-    int account;
+    int accountBalance;
     int InPocket;
+    int deposit;
+    int withdraw;
 }
 
     // public (decleared in interface) IMPLEMENTATION
 
--(void)setName {
+-(void)setName {  // Name section
     NSString *setName = @"lauren";
     NSLog(@"Enter your name:%@ ", setName);
     
 }
 
--(void) setAccount: (int)n {
+-(void) setAccount: (int)n {  // Account balance
     NSLog(@"Your Account balance is $%d", n);
-    account = n;
+    accountBalance = n;
 }
--(void) setPocket: (int)p {
+-(void) setPocket: (int)p {   // Money in your pocket
     NSLog(@"Your Pocket has $%d", p);
     InPocket = p;
 }
 
+-(void) setDeposit{
+    int d;
+    NSLog(@"Max deposit amount is $10,000 per day");
+    NSLog(@"Please Enter the amount you wish to deposit: ");
+    scanf("%d",&d);
+    accountBalance += d;
+    NSLog(@"Your current balance is %d", accountBalance);
+    deposit = d;
+}
+
+-(void) setWithDraw {
+    int w;
+    NSLog(@"Max withdraw amount is $1,000 per day");
+    NSLog(@"Please Enter the amount you wish to withdraw: ");
+    scanf("%d",&w);
+    accountBalance -= w;
+    NSLog(@"Your current balance is %d", accountBalance);
+    withdraw = w;
+}
 
 @end
 
@@ -56,10 +79,15 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         //Start CODE
         Patron *p = [[Patron alloc]init];
-        [p setName];
-        [p setAccount: 1000];
-        [p setPocket:500];
-    
+        [p setName];          // print name
+        [p setAccount: 1000]; //account balance
+        [p setPocket: 600];   //money in pocket
+        [p setDeposit];  //
+        [p setWithDraw];
+        
+        
+        
+        
         
         //END CODE
     }
