@@ -19,25 +19,35 @@
 
 @interface Patron : NSObject
 
--(void) setName: (NSString*)n;
--(void) setAccountNumber: (int)a;
+-(void) setName: (NSString*)name;
+-(void) setAccount: (int)n;
 -(void) setPocket: (int)p;
 
 
 @end
 
 @implementation Patron {
-    NSString *setName;
-    int AccountNumber;
-    int inPocket;
+    int account;
+    int InPocket;
 }
 
     // public (decleared in interface) IMPLEMENTATION
 
--(void)setName:(NSString *)name {
-    NSLog(@"Enter your name: ");
+-(void)setName {
+    NSString *setName = @"lauren";
+    NSLog(@"Enter your name:%@ ", setName);
     
 }
+
+-(void) setAccount: (int)n {
+    NSLog(@"Your Account balance is $%d", n);
+    account = n;
+}
+-(void) setPocket: (int)p {
+    NSLog(@"Your Pocket has $%d", p);
+    InPocket = p;
+}
+
 
 @end
 
@@ -45,7 +55,11 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         //Start CODE
-        
+        Patron *p = [[Patron alloc]init];
+        [p setName];
+        [p setAccount: 1000];
+        [p setPocket:500];
+    
         
         //END CODE
     }
